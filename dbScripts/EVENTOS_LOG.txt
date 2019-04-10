@@ -1,0 +1,11 @@
+db.EVENTOS_LOG.aggregate([
+   {$group : { _id : '$ID_USUARIO', count : {$sum : 1}}},
+   {$project: {
+    item: 1,
+    count:1,
+    inRange: {  
+        $cond: [ { $and: [ { $gt: [ "$count", 1000 ] }, { $lt: [ "$count", 2000 ] } ] }, 1, 0]
+    }}},
+    {$match : { inRange : 1.0 }},
+    { $count: "myCount" }
+])

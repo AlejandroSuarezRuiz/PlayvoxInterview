@@ -1,0 +1,6 @@
+db.BOOKS.aggregate([{$group : {
+                        _id : "$NOMBRE_ESCRITOR",copies: { $sum: "$COPIAS_VENDIDAS" }
+                    }},
+                    { $sort : { "copies" : -1}},
+                    { $limit: 5 }                     
+]) 

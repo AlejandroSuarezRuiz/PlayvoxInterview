@@ -1,0 +1,18 @@
+db.SALARIOS.aggregate([{$lookup: {
+                        from: 'EMPLEADOS',
+                        localField: 'EMPLEADO_ID',
+                        foreignField: 'EMPLEADO_ID',
+                        as: 'new_field'
+                      }},
+                      {$unwind: '$new_field'},
+                      {$project: {
+                            SALARIO: 1,
+                            AREA: '$new_field.AREA_NOMBRE'
+                      }},
+                      {$group : {
+                           _id : "$AREA",
+                           averageQuantity: { $avg: "$SALARIO" },
+                           count: { $sum: 1 }
+                        }
+                      }
+])

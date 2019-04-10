@@ -1,0 +1,2 @@
+[{"_id": "Willie Strickland", "copies": {"$numberDecimal": "575316"}}, {"_id": "Francis Kelley", "copies": {"$numberDecimal": "545106"}}, {"_id": "Francis Brewer", "copies": {"$numberDecimal": "525941"}}, {"_id": "Francis Rodgers", "copies": {"$numberDecimal": "522839"}}, {"_id": "Phillip Flores", "copies": {"$numberDecimal": "500815"}}]
+2019-04-10 15:25:00
